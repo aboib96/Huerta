@@ -1,0 +1,36 @@
+table thead {
+    background: #026873;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #72BF4E, #026873);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #72BF4E, #026873);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+table td .table_edit {
+    background: #ee8 !important;
+}
+
+.formTable {
+    background-color: #ffffff88;
+    backdrop-filter: blur(5px);
+    padding: 14px 0;
+    margin: 12px 0 0 0;
+
+    border-radius: 10px;
+}
+
+th {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.textTable {
+    background-color: #ffffff88;
+    color: white;
+    backdrop-filter: blur(5px);
+    padding: 14px 0;
+    border-radius: 10px;
+    margin: 12px 0;
+}

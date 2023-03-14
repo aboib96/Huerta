@@ -15,7 +15,8 @@ class RepositorioUsuario {
                         $usuarios[] = new Usuario(
                                 $fila['idUsuario'], 
                                 $fila['nombreUsuario'], 
-                                $fila['claveUsuario'], 
+                                $fila['claveUsuario'],
+                                $fila['emailUsuario'], 
                                 $fila['estadoUsuario'], 
                                 $fila['perfilUsuario']
                         );
@@ -51,17 +52,18 @@ class RepositorioUsuario {
 
         if (isset($conexion)) {
             try {
-                $sql = "INSERT INTO usuarios(nombreUsuario,claveUsuario,estadoUsuario,perfilUsuario) "
-                        . "VALUES(:nombre,:clave,:estado,:perfil)";
+                $sql = "INSERT INTO usuarios(nombreUsuario,claveUsuario,emailUsuario,estadoUsuario,perfilUsuario) "
+                        . "VALUES(:nombre,:clave,:email,:estado,:perfil)";
 
                 $sentencia = $conexion->prepare($sql);
                 
                 $nombre = $usuario->obtenerNombre();
                 $clave = $usuario->obtenerClave();
+                $email = $usuario->obtenerEmail();
                 $estado = $usuario->obtenerEstado();
                 $perfil = $usuario->obtenerPerfil();
 
-                $usuario_insertado = $sentencia->execute(array(":nombre" => $nombre, ":clave" => $clave, ":estado" => $estado, ":perfil" => $perfil));
+                $usuario_insertado = $sentencia->execute(array(":nombre" => $nombre, ":clave" => $clave,":email" => $email,":estado" => $estado, ":perfil" => $perfil));
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }
@@ -95,6 +97,34 @@ class RepositorioUsuario {
         
         return $nombre_existe;
     }
+
+    public static function email_existe($conexion, $email) {
+        $email_existe = true;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT * FROM usuarios where emailUsuario = :email";
+                
+                $sentencia = $conexion -> prepare($sql);
+                
+                $sentencia->bindParam(':email', $email, PDO::PARAM_STR);
+                
+                $sentencia-> execute();
+                
+                $resultado = $sentencia -> fetchAll();
+                
+                if(count($resultado)){
+                    $email_existe = true;
+                } else {
+                    $email_existe = false;
+                }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        
+        return $email_existe;
+    }
+
     public static function obtener_usuario($conexion, $usuario){
         $usuarios = null;
         if(isset($conexion)){
@@ -109,6 +139,7 @@ class RepositorioUsuario {
                     $usuarios = new Usuario($resultado['idUsuario'],
                             $resultado['nombreUsuario'],
                             $resultado['claveUsuario'],
+                            $resultado['emailUsuario'],
                             $resultado['estadoUsuario'],
                             $resultado['perfilUsuario']);
                 }
@@ -151,6 +182,7 @@ class RepositorioUsuario {
                     $usuarios = new Usuario($resultado['idUsuario'],
                             $resultado['nombreUsuario'],
                             $resultado['claveUsuario'],
+                            $resultado['emailUsuario'],
                             $resultado['estadoUsuario'],
                             $resultado['perfilUsuario']);
                 }
@@ -160,17 +192,18 @@ class RepositorioUsuario {
         }
         return $usuarios;
     }
-    public static function actualizar_usuario($conexion, $id, $nick, $estado, $tipo) {
+    public static function actualizar_usuario($conexion, $id, $nick, $email, $estado, $tipo) {
         $actualizacion_correcta = false;
 
         if (isset($conexion)) {
             try {
-                $sql = "UPDATE usuarios SET nombreUsuario = :nick, estadoUsuario= :estado, perfilUsuario = :perfil WHERE idUsuario = :id";
+                $sql = "UPDATE usuarios SET nombreUsuario = :nick, emailUsuario= :email, estadoUsuario= :estado, perfilUsuario = :perfil WHERE idUsuario = :id";
 
                 $sentencia = $conexion->prepare($sql);
 
                 $sentencia->bindParam(':nick'   , $nick     , PDO::PARAM_STR);
                 $sentencia->bindParam(':estado' , $estado   , PDO::PARAM_STR);
+                $sentencia->bindParam(':email' , $email   , PDO::PARAM_STR);
                 $sentencia->bindParam(':perfil' , $tipo     , PDO::PARAM_STR);
                 $sentencia->bindParam(':id'     , $id       , PDO::PARAM_STR);
 
@@ -220,7 +253,8 @@ class RepositorioUsuario {
                         $usuarios[] = new Usuario(
                                 $fila['idUsuario'], 
                                 $fila['nombreUsuario'], 
-                                $fila['claveUsuario'], 
+                                $fila['claveUsuario'],
+                                $fila['emailUsuario'],  
                                 $fila['estadoUsuario'], 
                                 $fila['perfilUsuario'] 
                         );

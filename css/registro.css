@@ -1,0 +1,165 @@
+:root {
+    --colorTextos: #49454567;
+}
+.glass {
+    background-color: #ffffff88;
+    backdrop-filter: blur(5px);
+    padding: 0 20px;
+    border-radius: 9px;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #026873;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #72BF4E, #026873);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #72BF4E, #026873);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.formR{
+    background-color: #ffffff;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.form{
+    width: 100%;
+    margin: auto;
+}
+
+form .grupo{
+    position: relative;
+    margin: 45px ;
+}
+
+.grupo input{
+    background: none;
+    color: #026873;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--colorTextos);
+}
+
+.grupo input:focus{ 
+    outline: none;
+    color: #026873;
+}
+
+.grupo label{
+    color: var(--colorTextos);
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.5s ease all;
+    pointer-events: none;
+}
+
+.grupo input:focus~label,
+.grupo input:valid~label{
+    top: -14px;
+    font-size: 12px;
+    color: #026873;
+}
+
+.barra{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.barra::before{
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right, #72BF4E, #026873);
+    transition: 0.3s ease width;
+    left: 0;
+}
+
+.grupo input:focus~.barra::before{
+    width: 100%;
+}
+
+
+.botonRegistro button{
+    background: #026873;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #72BF4E, #026873);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #72BF4E, #026873);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* @media screen and (max-width:500px){
+    form{
+        width: 70%;
+    }
+} */
+select {
+
+    background-color: #72BF4E;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+  }
+
+  select::-ms-expand{
+    display: none;
+  }
+
+  .select{
+    position: relative;
+    display: flex;
+    height: 3em;
+    line-height: 3;
+    background: #72BF4E;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+
+  select{
+    flex: 1;
+    padding: 0 .5em;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #72BF4E;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color: #23b499;
+ }

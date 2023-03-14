@@ -13,6 +13,7 @@ class Usuario{
         $this -> id = $id;
         $this -> nombre = $nombre;
         $this -> clave = $clave;
+        $this -> email = $email;
         $this -> estado = $estado;
         $this -> perfil = $perfil;
     }
