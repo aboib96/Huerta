@@ -51,7 +51,10 @@ if (ControlSesion::sesion_iniciada()) {
             <a class="nav-link active" aria-current="page" href="<?php echo RUTA_LOGOUT; ?>">CERRAR SESIÓN</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO; ?>">REGISTRO</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO_HUERTA; ?>">HUERTA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO; ?>">USUARIO</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO_EDITADO; ?>">EDITAR</a>

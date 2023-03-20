@@ -11,5 +11,5 @@ define("RUTA_REGISTRO", SERVIDOR."/registroUsuario.php");
 define("RUTA_REGISTRO_EDITADO", SERVIDOR."/editar_usuario.php");
 define("RUTA_LOGIN", SERVIDOR."/login.php");
 define("RUTA_LOGOUT", SERVIDOR."/logout.php");
-define("RUTA_PERSONAL", SERVIDOR."/registro_personal.php");
+define("RUTA_REGISTRO_HUERTA", SERVIDOR."/registroHuerta.php");
 define("RUTA_BUSCAR",SERVIDOR."/buscar.php"); 
