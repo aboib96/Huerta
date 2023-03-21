@@ -5,7 +5,7 @@ include_once 'app//Usuario//ValidadorUsuario.inc.php';
 class ValidadorRegistro extends ValidadorUsuario
 {
 
-        public function __construct($nombre, $clave, $clave2, $email, $estado, $tipo, $conexion)
+    public function __construct($nombre, $clave, $clave2, $email, $estado, $tipo, $conexion)
     {
         $this->aviso_inicio = "<br><div class='alert alert-danger' role='alert'>";
         $this->aviso_cierre = "</div>";
@@ -28,6 +28,4 @@ class ValidadorRegistro extends ValidadorUsuario
             $this->clave = $clave;
         }
     }
-
-    
 }

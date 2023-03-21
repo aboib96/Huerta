@@ -52,7 +52,7 @@ class RepositorioUsuario {
 
         if (isset($conexion)) {
             try {
-                $sql = "INSERT INTO usuarios(nombreUsuario,claveUsuario,emailUsuario,estadoUsuario,perfilUsuario) "
+                $sql = "INSERT INTO usuarios(nombreUsuario,claveUsuario,emailUsuario,estadoUsuario,perfilUsuario)"
                         . "VALUES(:nombre,:clave,:email,:estado,:perfil)";
 
                 $sentencia = $conexion->prepare($sql);
