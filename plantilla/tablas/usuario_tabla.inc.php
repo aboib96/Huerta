@@ -11,8 +11,10 @@ $usuarios = RepositorioUsuario::obtener_todos_usuario(Conexion::obtener_conexion
                         <input type="text" name="buscar" id="buscar" autocomplete="off"><span class="barra"></span>
                         <label for="buscar">BUSCAR USUARIO</label>
                     </div>
-                    <div class="botonRegistro">
-                        <button type="submit" id="btnCarga" class="btn btnCargar" name="buscador">BUSCAR</button>
+                    <div class="botonesEnvio">
+                        <div class="botonRegistro">
+                            <button type="submit" id="btnCarga" class="btn btnCargar" name="buscador">BUSCAR</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -29,7 +31,7 @@ if (isset($_POST['buscador'])) {
     $num = count($buscar);
     $resultado = $objBuscar->buscarUsuario($_POST['buscar'], $num);
 ?>
-
+    <div class="container">
         <div class="formTable">
             <div class="row">
                 <div class="col">
@@ -83,6 +85,9 @@ if (isset($_POST['buscador'])) {
                 </div>
             </div>
         </div>
+
+    </div>
+
 
 <?php
 } else {
