@@ -1,15 +1,7 @@
 <form action="" method="POST" id="form">
     <div class="formR">
         <div class="grupo">
-            <input type="text" name="icono" id="icono" required><span class="barra"></span>
-            <label for="icono">ICONO</label>
-        </div>
-        <div class="grupo">
-            <input type="text" name="imagen" id="imagen" required><span class="barra"></span>
-            <label for="imagen">IMAGEN</label>
-        </div>
-        <div class="grupo">
-            <input type="text" name="nombre" id="nombre" required><span class="barra"></span>
+            <input type="text" name="nombre" id="nombre" required onkeyup="javascript:this.value=this.value.toUpperCase();"><span class="barra"></span>
             <label for="nombre">NOMBRE</label>
         </div>
         <div class="grupo">
@@ -40,6 +32,17 @@
         <div class="grupo">
             <input type="number" name="cosechar" id="cosechar" required><span class="barra"></span>
             <label for="cosechar">TIEMPO DE COSECHA</label>
+        </div>
+        <div class="grupo">
+            <div class="select">
+                <select name="temporada" id="temporada">
+                    <option value="">SELECCIONE UNA TEMPORADA</option>
+                    <option value="verano">VERANO</option>
+                    <option value="otoño">OTOÑO</option>
+                    <option value="invierno">INVIERNO</option>
+                    <option value="primavera">PRIMAVERA</option>
+                </select>
+            </div>
         </div>
         <div class="grupo">
             <input type="number" name="maceta" id="maceta" required><span class="barra"></span>
@@ -107,14 +110,14 @@
         <div class="grupo">
             <input type="hidden" name="fecha" id="fecha" value="<?php echo '' . date('d/m/Y H:i:s'); ?>" readonly="readonly"><span class="barra"></span>
         </div>
+        <div class="botonesEnvio">
+            <div class="botonRegistro">
+                <button type="submit" name="enviar">ENVIAR</button>
+            </div>
 
-        <div class="botonRegistro">
-            <button type="submit" name="enviar">ENVIAR</button>
+            <div class="botonRegistro">
+                <button type="reset">RESTAURAR</button>
+            </div>
         </div>
-
-        <div class="botonRegistro">
-            <button type="reset">RESTAURAR</button>
-        </div>
-
     </div>
 </form>

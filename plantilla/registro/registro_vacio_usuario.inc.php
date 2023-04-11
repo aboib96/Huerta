@@ -42,12 +42,14 @@
         <?php
         }
         ?>
-        <div class="botonRegistro">
-            <button type="reset">RESTAURAR</button>
-        </div>
+        <div class="botonesEnvio">
+            <div class="botonRegistro">
+                <button type="submit" name="enviar">ENVIAR</button>
+            </div>
 
-        <div class="botonRegistro">
-            <button type="submit" name="enviar">ENVIAR</button>
+            <div class="botonRegistro">
+                <button type="reset" name="cancelar">CANCELAR</button>
+            </div>
         </div>
     </div>
 </form>

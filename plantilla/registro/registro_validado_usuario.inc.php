@@ -15,7 +15,7 @@
             ?>
         </div>
         <div class="grupo">
-            <input type="password" name="clave2" id="clave2" required ><span class="barra"></span>
+            <input type="password" name="clave2" id="clave2" required><span class="barra"></span>
             <label for="clave2">REPITE LA CLAVE</label>
             <?php
             $validador->mostrar_error_clave2();
@@ -113,13 +113,15 @@
         }
         ?>
 
-        <div class="botonRegistro">
-            <button type="reset">RESTAURAR</button>
+        <div class="botonesEnvio">
+            <div class="botonRegistro">
+                <button type="submit" name="enviar">ENVIAR</button>
+            </div>
 
+            <div class="botonRegistro">
+            <button type="submit" name="cancelar">CANCELAR</button>
+            </div>
         </div>
 
-        <div class="botonRegistro">
-            <button type="submit" name="enviar">ENVIAR</button>
-        </div>
     </div>
 </form>

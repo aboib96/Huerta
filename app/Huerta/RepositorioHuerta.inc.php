@@ -1,6 +1,6 @@
 <?php
 
-include_once '//app//Huerta//Huerta.inc.php';
+include_once 'app//Huerta//Huerta.inc.php';
 class RepositorioHuerta
 {
 
@@ -53,38 +53,106 @@ class RepositorioHuerta
 
     public static function insertar_huerta($conexion, $huerta)
     {
+        
         $huerta_insertado = false;
 
         if (isset($conexion)) {
             try {
-                $sql = "INSERT INTO cultivos(iconoCultivo,imagenCultivo,nombreCultivo,descripcionCultivo,cientificoCultivo,germinaCultivo,cosecharCultivo,macetaCultivo,climaCultivo,maximaCultivo,minimaCultivo,riegoCultivo,luzCultivo,alturaCultivo,sembrarCultivo,separacionCultivo,phCultivo,tipoCultivo,temporadaCultivo,sueloCultivo,usuarioCultivo,fechaCultivo)"                                               
-                                    . "VALUES(:icono,:imagen,:nombre,:descripcion,:cientifico,:germinacion,:cosecha,:maceta,:clima,:temperaturaMax,:temperaturaMin,:riego,:luz,:altura,:sembrarAlt,:separacion,:ph,:tipo,:temporada,:suelo,:usuario,:fecha)";                                           
+                $sql = "INSERT INTO cultivos(
+                                            iconoCultivo,
+                                            imagenCultivo,
+                                            nombreCultivo,
+                                            descripcionCultivo,
+                                            cientificoCultivo,
+                                            germinaCultivo,
+                                            cosecharCultivo,
+                                            macetaCultivo,
+                                            climaCultivo,
+                                            maximaCultivo,
+                                            minimaCultivo,
+                                            riegoCultivo,
+                                            luzCultivo,
+                                            alturaCultivo,
+                                            sembrarCultivo,
+                                            separacionCultivo,
+                                            phCultivo,
+                                            tipoCultivo,
+                                            temporadaCultivo,
+                                            sueloCultivo,
+                                            usuarioCultivo,
+                                            fechaCultivo)"                                               
+                                    . "VALUES(
+                                            :icono,
+                                            :imagen,
+                                            :nombre,
+                                            :descripcion,
+                                            :cientifico,
+                                            :germinacion,
+                                            :cosecha,
+                                            :maceta,
+                                            :clima,
+                                            :temperaturaMax,
+                                            :temperaturaMin,
+                                            :riego,
+                                            :luz,
+                                            :altura,
+                                            :sembrarAlt,
+                                            :separacion,
+                                            :ph,
+                                            :tipo,
+                                            :temporada,
+                                            :suelo,
+                                            :usuario,
+                                            :fecha)";                                           
                 $sentencia = $conexion->prepare($sql);
-                $icono = $huerta->getIcono();
-                $imagen = $huerta->getImagen();
-                $nombre = $huerta->getNombre();
-                $descripcion = $huerta->getDescripcion();
-                $cientifico = $huerta->getCientifico();
-                $tipo = $huerta->getTipo();
-                $germinacion = $huerta->getGerminacion();
-                $cosecha = $huerta->getCosecha();
-                $temporada = $huerta->getTemporada();
-                $maceta = $huerta->getMaceta();
-                $clima = $huerta->getClima();
-                $temperaturaMax = $huerta->getTemperaturaMax();
-                $temperaturaMin = $huerta->getTemperaturaMin();
-                $riego = $huerta->getRiego();
-                $luz = $huerta->getLuz();
-                $altura = $huerta->getAltura();
-                $sembrarAlt = $huerta->getSembrarAlt();
-                $separacion = $huerta->getSeparacion();
-                $suelo = $huerta->getSuelo();
-                $ph = $huerta->getPh();
-                $usuario = $huerta->getUsuario();
-                $fecha = $huerta->getFecha();
+
+                $icono = $huerta->obtenerIcono();
+                $imagen = $huerta->obtenerImagen();
+                $nombre = $huerta->obtenerNombre();
+                $descripcion = $huerta->obtenerDescripcion();
+                $cientifico = $huerta->obtenerCientifico();
+                $tipo = $huerta->obtenerTipo();
+                $germinacion = $huerta->obtenerGerminacion();
+                $cosecha = $huerta->obtenerCosecha();
+                $temporada = $huerta->obtenerTemporada();
+                $maceta = $huerta->obtenerMaceta();
+                $clima = $huerta->obtenerClima();
+                $temperaturaMax = $huerta->obtenerTemperaturaMax();
+                $temperaturaMin = $huerta->obtenerTemperaturaMin();
+                $riego = $huerta->obtenerRiego();
+                $luz = $huerta->obtenerLuz();
+                $altura = $huerta->obtenerAltura();
+                $sembrarAlt = $huerta->obtenerSembrarAlt();
+                $separacion = $huerta->obtenerSeparacion();
+                $suelo = $huerta->obtenerSuelo();
+                $ph = $huerta->obtenerPh();
+                $usuario = $huerta->obtenerUsuario();
+                $fecha = $huerta->obtenerFecha();
 
 
-                $huerta_insertado = $sentencia->execute(array(":icono" => $icono,":imagen" => $imagen,":nombre" => $nombre,":descripcion" => $descripcion,":cientifico" => $cientifico, ":germinacion" => $germinacion,":cosecha" => $cosecha,":maceta" => $maceta,":clima" => $clima,":temperaturaMax" => $temperaturaMax,":temperaturaMin" => $temperaturaMin,":riego" => $riego,":luz" => $luz,":altura" => $altura,":sembrarAlt" => $sembrarAlt,":separacion" => $separacion,":ph" => $ph, ":tipo" => $tipo, ":temporada" => $temporada, ":suelo" => $suelo,":usuario" => $usuario,":fecha" => $fecha));
+                $huerta_insertado = $sentencia->execute(array(
+                                                                ":icono" => $icono,
+                                                                ":imagen" => $imagen,
+                                                                ":nombre" => $nombre,
+                                                                ":descripcion" => $descripcion,
+                                                                ":cientifico" => $cientifico, 
+                                                                ":germinacion" => $germinacion,
+                                                                ":cosecha" => $cosecha,
+                                                                ":maceta" => $maceta,
+                                                                ":clima" => $clima,
+                                                                ":temperaturaMax" => $temperaturaMax,
+                                                                ":temperaturaMin" => $temperaturaMin,
+                                                                ":riego" => $riego,
+                                                                ":luz" => $luz,
+                                                                ":altura" => $altura,
+                                                                ":sembrarAlt" => $sembrarAlt,
+                                                                ":separacion" => $separacion,
+                                                                ":ph" => $ph, 
+                                                                ":tipo" => $tipo, 
+                                                                ":temporada" => $temporada, 
+                                                                ":suelo" => $suelo,
+                                                                ":usuario" => $usuario,
+                                                                ":fecha" => $fecha));
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }

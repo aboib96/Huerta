@@ -54,6 +54,8 @@ class ValidadorRegistroHuerta extends ValidadorHuerta
         $this->error_separacion = $this->validar_separacion($separacion);
         $this->error_suelo = $this->validar_suelo($suelo);
         $this->error_ph = $this->validar_ph($ph);
+        $this->error_usuario = $this->validar_usuario($usuario);
+        $this->error_fecha = $this->validar_fecha($fecha);
     }
 }
 

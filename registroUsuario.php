@@ -50,6 +50,7 @@ if (isset($_POST['enviar'])) {
     Conexion::cerrar_conexion();
 }
 
+
 $titulo = 'REGISTRO';
 include_once './plantilla/documento_declaracion.inc.php';
 include_once './plantilla/navbar.inc.php';
@@ -74,6 +75,8 @@ include_once './plantilla/navbar.inc.php';
                         if (isset($_POST['enviar'])) {
                             include_once './plantilla/registro/registro_validado_usuario.inc.php';
                         } else {
+                            include_once './plantilla/registro/registro_vacio_usuario.inc.php';
+                        }if (isset($_POST['cancelar'])) {
                             include_once './plantilla/registro/registro_vacio_usuario.inc.php';
                         }
                         ?>

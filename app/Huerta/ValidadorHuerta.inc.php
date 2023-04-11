@@ -276,6 +276,26 @@ abstract class ValidadorHuerta
         return "";
     }
 
+    protected function validar_usuario($usuario)
+    {
+        if (!$this->variable_iniciada($usuario)) {
+            return "NO EXISTE EL USUARIO";
+        } else {
+            $this->usuario = $usuario;
+        }
+        return "";
+    }
+
+    protected function validar_fecha($fecha)
+    {
+        if (!$this->variable_iniciada($fecha)) {
+            return "NO EXISTE LA FECHA";
+        } else {
+            $this->fecha = $fecha;
+        }
+        return "";
+    }
+
     public function getIcono()
     {
         return $this->icono;
@@ -452,6 +472,140 @@ abstract class ValidadorHuerta
     public function getError_Fecha()
     {
         return $this->error_fecha;
+    }
+
+
+    public function mostrar_icono()
+    {
+        if ($this->icono !== "") {
+            echo 'value="' . $this->icono . '"';
+        }
+    }
+    public function mostrar_imagen()
+    {
+        if ($this->imagen !== "") {
+            echo 'value="' . $this->imagen . '"';
+        }
+    }
+    public function mostrar_nombre()
+    {
+        if ($this->nombre !== "") {
+            echo 'value="' . $this->nombre . '"';
+        }
+    }
+    public function mostrar_descripcion()
+    {
+        if ($this->descripcion !== "") {
+            echo $this->descripcion;
+        }
+    }
+    public function mostrar_cientifico()
+    {
+        if ($this->cientifico !== "") {
+            echo 'value="' . $this->cientifico . '"';
+        }
+    }
+    public function mostrar_tipo()
+    {
+        if ($this->tipo !== "") {
+            echo 'value="' . $this->tipo . '"';
+        }
+    }
+    public function mostrar_germinacion()
+    {
+        if ($this->germinacion !== "") {
+            echo 'value="' . $this->germinacion . '"';
+        }
+    }
+    public function mostrar_cosecha()
+    {
+        if ($this->cosecha !== "") {
+            echo 'value="' . $this->cosecha . '"';
+        }
+    }
+    public function mostrar_temporada()
+    {
+        if ($this->temporada !== "") {
+            echo 'value="' . $this->temporada . '"';
+        }
+    }
+    public function mostrar_maceta()
+    {
+        if ($this->maceta !== "") {
+            echo 'value="' . $this->maceta . '"';
+        }
+    }
+    public function mostrar_clima()
+    {
+        if ($this->clima !== "") {
+            echo 'value="' . $this->clima . '"';
+        }
+    }
+    public function mostrar_temperaturaMax()
+    {
+        if ($this->temperaturaMax !== "") {
+            echo 'value="' . $this->temperaturaMax . '"';
+        }
+    }
+    public function mostrar_temperaturaMin()
+    {
+        if ($this->temperaturaMin !== "") {
+            echo 'value="' . $this->temperaturaMin . '"';
+        }
+    }
+    public function mostrar_riego()
+    {
+        if ($this->riego !== "") {
+            echo 'value="' . $this->riego . '"';
+        }
+    }
+    public function mostrar_luz()
+    {
+        if ($this->luz !== "") {
+            echo 'value="' . $this->luz . '"';
+        }
+    }
+    public function mostrar_altura()
+    {
+        if ($this->altura !== "") {
+            echo 'value="' . $this->altura . '"';
+        }
+    }
+    public function mostrar_sembrarAlt()
+    {
+        if ($this->sembrarAlt !== "") {
+            echo 'value="' . $this->sembrarAlt . '"';
+        }
+    }
+    public function mostrar_separacion()
+    {
+        if ($this->separacion !== "") {
+            echo 'value="' . $this->separacion . '"';
+        }
+    }
+    public function mostrar_suelo()
+    {
+        if ($this->suelo !== "") {
+            echo 'value="' . $this->suelo . '"';
+        }
+    }
+    public function mostrar_ph()
+    {
+        if ($this->ph !== "") {
+            echo 'value="' . $this->ph . '"';
+        }
+    }
+    public function mostrar_usuario()
+    {
+        if ($this->usuario !== "") {
+            echo 'value="' . $this->usuario . '"';
+        }
+    }
+    public function mostrar_fecha()
+    {
+        if ($this->fecha !== "") {
+            echo 'value="' . $this->fecha . '"';
+        }
     }
 
 
