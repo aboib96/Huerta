@@ -2,6 +2,7 @@
 $titulo = 'TU HUERTA';
 include_once './plantilla/documento_declaracion.inc.php';
 include_once './plantilla/navbar.inc.php';
+include_once './/app//huertaCompleta.inc.php';
 ?>
 
 <?php
@@ -16,28 +17,11 @@ if (!ControlSesion::sesion_iniciada()) {
 
 
 <div class="container">
-  <h1>aca</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-  <h1>hola</h1>
-
+  <?php
+        Conexion :: abrir_conexion();
+        huertaCompleta::huerta_completa();
+        Conexion :: cerrar_conexion();
+  ?>
 </div>
 
 

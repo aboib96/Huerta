@@ -44,7 +44,7 @@ if (isset($_POST['buscador'])) {
                                     <th>NOMBRE</th>
                                     <th>ESTADO</th>
                                     <th>TIPO</th>
-                                    <th>EMAIL</th>
+
                                 </tr>
                             </thead>
                             <?php
@@ -67,7 +67,7 @@ if (isset($_POST['buscador'])) {
                                         <td style="text-align:left"><?php echo $value['nombreUsuario']; ?></td>
                                         <td style="text-align:left"><?php echo $value['estadoUsuario']; ?></td>
                                         <td style="text-align:left"><?php echo $value['perfilUsuario']; ?></td>
-                                        <td style="text-align:left"><?php echo $value['emailUsuario']; ?></td>
+
 
                                     </tr>
                                 <?php
@@ -105,7 +105,7 @@ if (isset($_POST['buscador'])) {
                                     <th>NOMBRE</th>
                                     <th>ESTADO</th>
                                     <th>TIPO</th>
-                                    <th>EMAIL</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -129,7 +129,7 @@ if (isset($_POST['buscador'])) {
                                         <td style="text-align:left"><?php echo $usuario_actual->obtenerNombre(); ?></td>
                                         <td style="text-align:left"><?php echo $usuario_actual->obtenerEstado(); ?></td>
                                         <td style="text-align:left"><?php echo $usuario_actual->obtenerPerfil(); ?></td>
-                                        <td style="text-align:left"><?php echo $usuario_actual->obtenerEmail(); ?></td>
+
                                     </tr>
                             <?php
                                 }

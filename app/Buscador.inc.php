@@ -14,4 +14,15 @@ class Buscador extends Conexion
         }
     Conexion::cerrar_conexion();
     }
+
+    public function buscarHuerta($buscar = false, $num = false)
+    {
+        Conexion::abrir_conexion();
+        if ($num == 1) {
+            $sql = $this->obtener_conexion()->prepare('SELECT * FROM cultivos WHERE nombreCultivo LIKE "%' . $buscar . '%"');
+            $sql->execute();
+            return $sql->fetchAll();
+        }
+    Conexion::cerrar_conexion();
+    }
 }

@@ -9,6 +9,8 @@ abstract class ValidadorUsuario
     protected $email;
     protected $estado;
     protected $tipo;
+
+
     protected $error_nombre;
     protected $error_clave;
     protected $error_clave2;

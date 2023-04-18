@@ -31,7 +31,7 @@ include_once 'app/ControlSesion.inc.php';
 <?php
 if (ControlSesion::sesion_iniciada()) {
 ?>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f2f2f2;">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #f2f2f2;">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="image/icono.png" alt="" width="60" height="60" class="d-inline-block align-text-top">
@@ -43,21 +43,21 @@ if (ControlSesion::sesion_iniciada()) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO_HUERTA; ?>">HUERTA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO; ?>">REGISTRO</a>
           </li>
         </ul>
         <ul class="navbar-nav nav_right">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_LOGOUT; ?>">CERRAR SESIÓN</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_HUERTA_EDITADO; ?>">EDITAR HUERTA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO_HUERTA; ?>">HUERTA</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO_EDITADO; ?>">EDITAR USUARIO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO; ?>">USUARIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_REGISTRO_EDITADO; ?>">EDITAR</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_LOGOUT; ?>">SALIR <i class="bi bi-x-circle-fill"></i></a>
           </li>
         </ul>
       </div>
@@ -77,9 +77,6 @@ if (ControlSesion::sesion_iniciada()) {
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
         </ul>
         <ul class="navbar-nav nav_right">
           <li class="nav-item">

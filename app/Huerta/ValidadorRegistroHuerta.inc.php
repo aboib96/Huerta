@@ -5,7 +5,29 @@ include_once 'app//Huerta//ValidadorHuerta.inc.php';
 
 class ValidadorRegistroHuerta extends ValidadorHuerta
 {
-    public function __construct($icono,$imagen,$nombre,$descripcion,$cientifico,$tipo,$germinacion,$cosecha,$temporada,$maceta,$clima,$temperaturaMax,$temperaturaMin,$riego,$luz,$altura,$sembrarAlt,$separacion,$suelo,$ph,$usuario,$fecha,$conexion)
+    public function __construct($icono,
+                                $imagen,
+                                $nombre,
+                                $descripcion,
+                                $cientifico,
+                                $tipo,
+                                $germinacion,
+                                $cosecha,
+                                $temporada,
+                                $maceta,
+                                $clima,
+                                $temperaturaMax,
+                                $temperaturaMin,
+                                $riego,
+                                $luz,
+                                $altura,
+                                $sembrarAlt,
+                                $separacion,
+                                $suelo,
+                                $ph,
+                                $usuario,
+                                $fecha,
+                                $conexion)
     {
         $this->aviso_inicio = "<br><div class='alert alert-danger' role='alert'>";
         $this->aviso_cierre = "</div>";

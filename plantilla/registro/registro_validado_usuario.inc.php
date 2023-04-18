@@ -1,29 +1,29 @@
 <form action="" method="POST" id="form">
     <div class="formR">
         <div class="grupo">
-            <input type="text" name="nombre" id="name" required <?php $validador->mostrar_nombre() ?>><span class="barra"></span>
-            <label for="nombre">NOMBRE</label>
+            <input type="text" name="nombre" id="name" <?php $validador->mostrar_nombre() ?>><span class="barra"></span>
+            <label for="nombre">NOMBRE <i class="bi bi-people-fill"></i></label>
             <?php
             $validador->mostrar_error_nombre();
             ?>
         </div>
         <div class="grupo">
-            <input type="password" name="clave" id="clave" required><span class="barra"></span>
-            <label for="clave">CLAVE</label>
+            <input type="password" name="clave" id="clave"><span class="barra"></span>
+            <label for="clave">CLAVE  <i class="bi bi-key-fill"></i></label>
             <?php
             $validador->mostrar_error_clave();
             ?>
         </div>
         <div class="grupo">
-            <input type="password" name="clave2" id="clave2" required><span class="barra"></span>
-            <label for="clave2">REPITE LA CLAVE</label>
+            <input type="password" name="clave2" id="clave2"><span class="barra"></span>
+            <label for="clave2">REPITE LA CLAVE  <i class="bi bi-key-fill"></i></label>
             <?php
             $validador->mostrar_error_clave2();
             ?>
         </div>
         <div class="grupo">
-            <input type="text" name="email" id="email" required <?php $validador->mostrar_email() ?>><span class="barra"></span>
-            <label for="email">EMAIL</label>
+            <input type="text" name="email" id="email" <?php $validador->mostrar_email() ?>><span class="barra"></span>
+            <label for="email">EMAIL <i class="bi bi-envelope-fill"></i></label>
             <?php
             $validador->mostrar_error_email();
             ?>
@@ -118,8 +118,8 @@
                 <button type="submit" name="enviar">ENVIAR</button>
             </div>
 
-            <div class="botonRegistro">
-            <button type="submit" name="cancelar">CANCELAR</button>
+            <div class="botonCancelar">
+                <button type="button" name="cancelar"><a class="navbar-brand" href="<?php echo SERVIDOR; ?>">CANCELAR</a></button>
             </div>
         </div>
 

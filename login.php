@@ -53,12 +53,12 @@ include_once 'app//Usuario//Usuario.inc.php';
 
                             <form role="form" id="formLogin" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                 <div class="grupo">
-                                    <input type="text" autocomplete="off" name="usuario" id="usuario" required><span class="barra"></span>
+                                    <input type="text" autocomplete="off" name="usuario" id="usuario"><span class="barra"></span>
                                     <label for="usuario">USUARIO</label>
                                 </div>
 
                                 <div class="grupo">
-                                    <input type="password" name="clave" id="clave" required><span class="barra"></span>
+                                    <input type="password" name="clave" id="clave"><span class="barra"></span>
                                     <label for="clave">CLAVE</label>
                                 </div>
 

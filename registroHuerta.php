@@ -3,6 +3,7 @@ include_once 'app/Conexion.inc.php';
 include_once 'app//Huerta//Huerta.inc.php';
 include_once 'app//Huerta//RepositorioHuerta.inc.php';
 include_once 'app//Huerta//ValidadorRegistroHuerta.inc.php';
+include_once 'app//Huerta//ValidadorHuertaModificado.inc.php';
 include_once 'app/Redireccion.inc.php';
 include_once 'app/ControlSesion.inc.php';
 
@@ -11,8 +12,8 @@ if (isset($_POST['enviar'])) {
     Conexion::abrir_conexion();
 
         $validador = new ValidadorRegistroHuerta(
-                                                $_POST['nombre'].'.inc.php',  
-                                                $_POST['nombre'], 
+                                                $_POST['nombre'],  
+                                                $_POST['nombre'],
                                                 $_POST['nombre'], 
                                                 $_POST['descripcion'], 
                                                 $_POST['nombreC'], 
@@ -44,10 +45,8 @@ if (isset($_POST['enviar'])) {
                 $validador->getNombre(),
                 $validador->getDescripcion(),
                 $validador->getCientifico(),
-                $validador->getTipo(),
                 $validador->getGerminacion(),
                 $validador->getCosecha(),
-                $validador->getTemporada(),
                 $validador->getMaceta(),
                 $validador->getClima(),
                 $validador->getTemperaturaMax(),
@@ -57,8 +56,10 @@ if (isset($_POST['enviar'])) {
                 $validador->getAltura(),
                 $validador->getSembrarAlt(),
                 $validador->getSeparacion(),
-                $validador->getSuelo(),
                 $validador->getPh(),
+                $validador->getTipo(),
+                $validador->getTemporada(),
+                $validador->getSuelo(),
                 $validador->getUsuario(),
                 $validador->getFecha()
             );

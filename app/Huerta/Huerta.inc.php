@@ -4,30 +4,30 @@ class Huerta
 {
 
     public function __construct(
-                                private $id, 
-                                private $icono, 
-                                private $imagen, 
-                                private $nombre, 
-                                private $descripcion, 
-                                private $cientifico, 
-                                private $germinacion, 
-                                private $cosecha, 
-                                private $maceta, 
-                                private $clima, 
-                                private $temperaturaMax, 
-                                private $temperaturaMin, 
-                                private $riego, 
-                                private $luz, 
-                                private $altura, 
-                                private $sembrarAlt, 
-                                private $separacion, 
-                                private $ph, 
-                                private $tipo, 
-                                private $temporada, 
-                                private $suelo, 
-                                private $usuario, 
-                                private $fecha)
-    {
+        private $id,
+        private $icono,
+        private $imagen,
+        private $nombre,
+        private $descripcion,
+        private $cientifico,
+        private $germinacion,
+        private $cosecha,
+        private $maceta,
+        private $clima,
+        private $temperaturaMax,
+        private $temperaturaMin,
+        private $riego,
+        private $luz,
+        private $altura,
+        private $sembrarAlt,
+        private $separacion,
+        private $ph,
+        private $tipo,
+        private $temporada,
+        private $suelo,
+        private $usuario,
+        private $fecha
+    ) {
     }
 
     public function obtenerId()
@@ -54,10 +54,7 @@ class Huerta
     {
         return $this->cientifico;
     }
-    public function obtenerTipo()
-    {
-        return $this->tipo;
-    }
+
     public function obtenerGerminacion()
     {
         return $this->germinacion;
@@ -65,10 +62,6 @@ class Huerta
     public function obtenerCosecha()
     {
         return $this->cosecha;
-    }
-    public function obtenerTemporada()
-    {
-        return $this->temporada;
     }
     public function obtenerMaceta()
     {
@@ -106,13 +99,21 @@ class Huerta
     {
         return $this->separacion;
     }
-    public function obtenerSuelo()
-    {
-        return $this->suelo;
-    }
     public function obtenerPh()
     {
         return $this->ph;
+    }
+    public function obtenerTipo()
+    {
+        return $this->tipo;
+    }
+    public function obtenerTemporada()
+    {
+        return $this->temporada;
+    }
+    public function obtenerSuelo()
+    {
+        return $this->suelo;
     }
     public function obtenerUsuario()
     {

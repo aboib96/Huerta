@@ -74,7 +74,7 @@
                     <button type="submit" id="guardar_cambios_usuario" class="btn btnCargar" name="guardar_cambios_usuario">ENVIAR</button>
                 </div>
 
-                <div class="botonRegistro">
+                <div class="botonCancelar">
                     <button type="submit" class="btn btnLimpiar" name="anular">CANCELAR</button>
                 </div>
             </div>

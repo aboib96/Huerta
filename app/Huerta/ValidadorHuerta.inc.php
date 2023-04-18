@@ -106,6 +106,10 @@ abstract class ValidadorHuerta
         } else {
             $this->descripcion = $descripcion;
         }
+
+        if (strlen($descripcion) > 500) {
+            return "LA DESCRIPCION NO DEBE SER MAS LARGO QUE 100 CARACTERES";
+        }
         return "";
     }
 

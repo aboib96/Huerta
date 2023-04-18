@@ -53,7 +53,7 @@ class RepositorioHuerta
 
     public static function insertar_huerta($conexion, $huerta)
     {
-        
+
         $huerta_insertado = false;
 
         if (isset($conexion)) {
@@ -80,8 +80,8 @@ class RepositorioHuerta
                                             temporadaCultivo,
                                             sueloCultivo,
                                             usuarioCultivo,
-                                            fechaCultivo)"                                               
-                                    . "VALUES(
+                                            fechaCultivo)"
+                    . "VALUES(
                                             :icono,
                                             :imagen,
                                             :nombre,
@@ -103,18 +103,16 @@ class RepositorioHuerta
                                             :temporada,
                                             :suelo,
                                             :usuario,
-                                            :fecha)";                                           
+                                            :fecha)";
                 $sentencia = $conexion->prepare($sql);
 
-                $icono = $huerta->obtenerIcono();
-                $imagen = $huerta->obtenerImagen();
+                $icono = $huerta->obtenerIcono().'.png';
+                $imagen = $huerta->obtenerImagen().'.jpg';
                 $nombre = $huerta->obtenerNombre();
                 $descripcion = $huerta->obtenerDescripcion();
                 $cientifico = $huerta->obtenerCientifico();
-                $tipo = $huerta->obtenerTipo();
                 $germinacion = $huerta->obtenerGerminacion();
                 $cosecha = $huerta->obtenerCosecha();
-                $temporada = $huerta->obtenerTemporada();
                 $maceta = $huerta->obtenerMaceta();
                 $clima = $huerta->obtenerClima();
                 $temperaturaMax = $huerta->obtenerTemperaturaMax();
@@ -124,35 +122,38 @@ class RepositorioHuerta
                 $altura = $huerta->obtenerAltura();
                 $sembrarAlt = $huerta->obtenerSembrarAlt();
                 $separacion = $huerta->obtenerSeparacion();
-                $suelo = $huerta->obtenerSuelo();
                 $ph = $huerta->obtenerPh();
+                $tipo = $huerta->obtenerTipo();
+                $temporada = $huerta->obtenerTemporada();
+                $suelo = $huerta->obtenerSuelo();
                 $usuario = $huerta->obtenerUsuario();
                 $fecha = $huerta->obtenerFecha();
 
 
                 $huerta_insertado = $sentencia->execute(array(
-                                                                ":icono" => $icono,
-                                                                ":imagen" => $imagen,
-                                                                ":nombre" => $nombre,
-                                                                ":descripcion" => $descripcion,
-                                                                ":cientifico" => $cientifico, 
-                                                                ":germinacion" => $germinacion,
-                                                                ":cosecha" => $cosecha,
-                                                                ":maceta" => $maceta,
-                                                                ":clima" => $clima,
-                                                                ":temperaturaMax" => $temperaturaMax,
-                                                                ":temperaturaMin" => $temperaturaMin,
-                                                                ":riego" => $riego,
-                                                                ":luz" => $luz,
-                                                                ":altura" => $altura,
-                                                                ":sembrarAlt" => $sembrarAlt,
-                                                                ":separacion" => $separacion,
-                                                                ":ph" => $ph, 
-                                                                ":tipo" => $tipo, 
-                                                                ":temporada" => $temporada, 
-                                                                ":suelo" => $suelo,
-                                                                ":usuario" => $usuario,
-                                                                ":fecha" => $fecha));
+                    ":icono" => $icono,
+                    ":imagen" => $imagen,
+                    ":nombre" => $nombre,
+                    ":descripcion" => $descripcion,
+                    ":cientifico" => $cientifico,
+                    ":germinacion" => $germinacion,
+                    ":cosecha" => $cosecha,
+                    ":maceta" => $maceta,
+                    ":clima" => $clima,
+                    ":temperaturaMax" => $temperaturaMax,
+                    ":temperaturaMin" => $temperaturaMin,
+                    ":riego" => $riego,
+                    ":luz" => $luz,
+                    ":altura" => $altura,
+                    ":sembrarAlt" => $sembrarAlt,
+                    ":separacion" => $separacion,
+                    ":ph" => $ph,
+                    ":tipo" => $tipo,
+                    ":temporada" => $temporada,
+                    ":suelo" => $suelo,
+                    ":usuario" => $usuario,
+                    ":fecha" => $fecha
+                ));
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }
@@ -278,39 +279,62 @@ class RepositorioHuerta
         return $id_huertas;
     }
 
-    public static function actualizar_huerta($conexion,$id,$icono,$imagen,$nombre,$descripcion,$cientifico,$tipo,$germinacion,$cosecha,$temporada,$maceta,$clima,$temperaturaMax,$temperaturaMin,$riego,$luz,$altura,$sembrarAlt,$separacion,$suelo,$ph,$usuario,$fecha)
+    public static function actualizar_huerta($conexion, 
+                                            $id, 
+                                            $icono, 
+                                            $imagen, 
+                                            $nombre, 
+                                            $descripcion, 
+                                            $cientifico,                                             
+                                            $germinacion, 
+                                            $cosecha,                                              
+                                            $maceta, 
+                                            $clima, 
+                                            $temperaturaMax, 
+                                            $temperaturaMin, 
+                                            $riego, 
+                                            $luz, 
+                                            $altura, 
+                                            $sembrarAlt, 
+                                            $separacion,                                            
+                                            $ph,
+                                            $tipo, 
+                                            $temporada,
+                                            $suelo,
+                                            $usuario, 
+                                            $fecha)
     {
         $actualizacion_correcta = false;
 
         if (isset($conexion)) {
             try {
                 $sql = "UPDATE cultivos 
-                        SET iconoCultivo = :icono, 
-                            imagenCultivo = :imagen, 
-                            nombreCultivo = :nombre,
-                            descripcionCultivo = :descripcion,
-                            cientificoCultivo = :cientifico,
-                            germinaCultivo = :germinacion,
-                            cosecharCultivo = :cosecha,
-                            macetaCultivo = :maceta,
-                            climaCultivo = :clima,
-                            maximaCultivo = :temperaturaMax,
-                            minimaCultivo = :temperaturaMin,
-                            riegoCultivo = :riego,
-                            luzCultivo = :luz,
-                            alturaCultivo = :altura,
-                            sembrarCultivo = :sembrarAlt,
-                            separacionCultivo = :separacion,
-                            phCultivo = :ph,
-                            tipoCultivo = :tipo, 
-                            temporadaCultivo = :temporada,
-                            sueloCultivo = :suelo,
-                            usuarioCultivo = :usuario,
-                            fechaCultivo = :fecha
-                        WHERE idCultivo  = :id";
+                        SET iconoCultivo            = :icono, 
+                            imagenCultivo           = :imagen, 
+                            nombreCultivo           = :nombre,
+                            descripcionCultivo      = :descripcion,
+                            cientificoCultivo       = :cientifico,
+                            germinaCultivo          = :germinacion,
+                            cosecharCultivo         = :cosecha,
+                            macetaCultivo           = :maceta,
+                            climaCultivo            = :clima,
+                            maximaCultivo           = :temperaturaMax,
+                            minimaCultivo           = :temperaturaMin,
+                            riegoCultivo            = :riego,
+                            luzCultivo              = :luz,
+                            alturaCultivo           = :altura,
+                            sembrarCultivo          = :sembrarAlt,
+                            separacionCultivo       = :separacion,
+                            phCultivo               = :ph,
+                            tipoCultivo             = :tipo, 
+                            temporadaCultivo        = :temporada,
+                            sueloCultivo            = :suelo,
+                            usuarioCultivo          = :usuario,
+                            fechaCultivo            = :fecha
+                        WHERE idCultivo             = :id";
 
                 $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(':icono',$icono, PDO::PARAM_STR);
+                $sentencia->bindParam(':icono', $icono, PDO::PARAM_STR);
                 $sentencia->bindParam(':imagen', $imagen, PDO::PARAM_STR);
                 $sentencia->bindParam(':nombre', $nombre, PDO::PARAM_STR);
                 $sentencia->bindParam(':descripcion', $descripcion, PDO::PARAM_STR);
@@ -349,17 +373,15 @@ class RepositorioHuerta
         }
         return $actualizacion_correcta;
     }
-    public static function eliminar_huerta($conexion, $idCultivo )
+    public static function eliminar_huerta($conexion, $idCultivo)
     {
         if (isset($conexion)) {
             try {
                 $conexion->beginTransaction();
-
-                $sql = "DELETE FROM cultivos WHERE idCultivo =:idCultivo ";
+                $sql = "DELETE FROM cultivos WHERE idCultivo=:idCultivo";
                 $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(':idCultivo ', $idCultivo , PDO::PARAM_STR);
+                $sentencia->bindParam(':idCultivo', $idCultivo, PDO::PARAM_STR);
                 $sentencia->execute();
-
                 $conexion->commit();
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
@@ -385,10 +407,8 @@ class RepositorioHuerta
                             $fila['nombreCultivo'],
                             $fila['descripcionCultivo'],
                             $fila['cientificoCultivo'],
-                            $fila['tipoCultivo'],
                             $fila['germinaCultivo'],
                             $fila['cosecharCultivo'],
-                            $fila['temporadaCultivo'],
                             $fila['macetaCultivo'],
                             $fila['climaCultivo'],
                             $fila['maximaCultivo'],
@@ -398,14 +418,107 @@ class RepositorioHuerta
                             $fila['alturaCultivo'],
                             $fila['sembrarCultivo'],
                             $fila['separacionCultivo'],
-                            $fila['sueloCultivo'],
                             $fila['phCultivo'],
+                            $fila['tipoCultivo'],
+                            $fila['temporadaCultivo'],
+                            $fila['sueloCultivo'],
                             $fila['usuarioCultivo'],
                             $fila['fechaCultivo']
                         );
                     }
                 } else {
                     print 'NO HAY HUERTA';
+                }
+            } catch (PDOException $ex) {
+                print "ERROR" . $ex->getMessage();
+            }
+        }
+        return $huertas;
+    }
+
+    public static function obtener_todos_huert_ordenado($conexion)
+    {
+        $huertas = array();
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT *FROM cultivos ORDER BY nombreCultivo";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->execute();
+                $resultado = $sentencia->fetchAll();
+                if (count($resultado)) {
+                    foreach ($resultado as $fila) {
+                        $huertas[] = new Huerta(
+                            $fila['idCultivo'],
+                            $fila['iconoCultivo'],
+                            $fila['imagenCultivo'],
+                            $fila['nombreCultivo'],
+                            $fila['descripcionCultivo'],
+                            $fila['cientificoCultivo'],
+                            $fila['germinaCultivo'],
+                            $fila['cosecharCultivo'],
+                            $fila['macetaCultivo'],
+                            $fila['climaCultivo'],
+                            $fila['maximaCultivo'],
+                            $fila['minimaCultivo'],
+                            $fila['riegoCultivo'],
+                            $fila['luzCultivo'],
+                            $fila['alturaCultivo'],
+                            $fila['sembrarCultivo'],
+                            $fila['separacionCultivo'],
+                            $fila['phCultivo'],
+                            $fila['tipoCultivo'],
+                            $fila['temporadaCultivo'],
+                            $fila['sueloCultivo'],
+                            $fila['usuarioCultivo'],
+                            $fila['fechaCultivo']
+                        );
+                    }
+                } else {
+                    print 'NO HAY HUERTA';
+                }
+            } catch (PDOException $ex) {
+                print "ERROR" . $ex->getMessage();
+            }
+        }
+        return $huertas;
+    }
+
+    public static function obtener_huerta_id($conexion, $huerta)
+    {
+        $huertas = null;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT *FROM cultivos WHERE idCultivo = :id";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->bindParam(':id', $huerta, PDO::PARAM_STR);
+                $sentencia->execute();
+                $resultado = $sentencia->fetch();
+                if (!empty($resultado)) {
+                    $huertas = new Huerta(
+                        $resultado['idCultivo'],
+                        $resultado['iconoCultivo'],
+                        $resultado['imagenCultivo'],
+                        $resultado['nombreCultivo'],
+                        $resultado['descripcionCultivo'],
+                        $resultado['cientificoCultivo'],
+                        $resultado['germinaCultivo'],
+                        $resultado['cosecharCultivo'],
+                        $resultado['macetaCultivo'],
+                        $resultado['climaCultivo'],
+                        $resultado['maximaCultivo'],
+                        $resultado['minimaCultivo'],
+                        $resultado['riegoCultivo'],
+                        $resultado['luzCultivo'],
+                        $resultado['alturaCultivo'],
+                        $resultado['sembrarCultivo'],
+                        $resultado['separacionCultivo'],
+                        $resultado['phCultivo'],
+                        $resultado['tipoCultivo'],
+                        $resultado['temporadaCultivo'],
+                        $resultado['sueloCultivo'],
+                        $resultado['usuarioCultivo'],
+                        $resultado['fechaCultivo']
+                    );
                 }
             } catch (PDOException $ex) {
                 print "ERROR" . $ex->getMessage();

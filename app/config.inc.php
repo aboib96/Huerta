@@ -12,4 +12,6 @@ define("RUTA_REGISTRO_EDITADO", SERVIDOR."/editar_usuario.php");
 define("RUTA_LOGIN", SERVIDOR."/login.php");
 define("RUTA_LOGOUT", SERVIDOR."/logout.php");
 define("RUTA_REGISTRO_HUERTA", SERVIDOR."/registroHuerta.php");
+define("RUTA_HUERTA_EDITADO", SERVIDOR."/editar_huerta.php");
 define("RUTA_BUSCAR",SERVIDOR."/buscar.php"); 
+define("DETALLE",SERVIDOR."/huertaDetallado.inc.php"); 
